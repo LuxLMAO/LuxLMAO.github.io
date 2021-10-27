@@ -52,7 +52,7 @@
             border-right: none;
         }
 
-        div {
+        #div {
             text-align: center;
             opacity: 0.9;
         }
@@ -65,24 +65,98 @@
         #base2 {
             background-color: white;
             text-align: center;
+            padding-bottom: 10px;
         }
 
         #base3 {
             background-color: #131313;
             text-align: center;
         }
+
+        .overlay {
+            height: 0%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,1);
+            overflow-y: hidden;
+            transition: 0.5s;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 35%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover, .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay {overflow-y: auto;}
+            .overlay a {font-size: 20px}
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+
 </style>
 </head>
 <body>
+    <div id="sidemenu" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Your</a>
+          <a href="#">mom</a>
+          <a href="#">is a</a>
+          <a href="#">hoe.</a>
+    </div>
+    </div>
+    <div id="div"> <!-- Inside -->
+    <script>
+        function openNav() {
+          document.getElementById("sidemenu").style.height = "100%";
+        }
+        
+        function closeNav() {
+          document.getElementById("sidemenu").style.height = "0%";
+        }
+        </script>
     <div id="base1"> <!-- Inside -->
         <br>
-        <h1 style="color: white;">Lux's Center</h1>
+        <span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <br>
         <br>
     </div>
     <div id="base2"> <!-- Inside -->
         <br>
-        <h1 style="color: rgb(43, 0, 59);">Ok, this website looks ass right now cause I coded it in 10 minutes.</h1>
-        <h3 style="color: rgb(43, 0, 59);">All links, downloads and info can be found below.</h1>
+        <h1 style="color: rgb(43, 0, 59);">Welcome to Lux's Center</h1>
+        <h3 style="color: rgb(43, 0, 59);">Half of the code for this webpage isn't even done so don't judge.</h3>
+        <h2 style="color: rgb(43, 0, 59);">All links, downloads and info can be found below. You should follow me on <a style="text-decoration: none;color:rgb(0, 0, 0);" target="_blank" href="https://twitch.tv/lux0594">twitch</a> btw</h2>
         <br>
         <h1 style="color: rgb(43, 0, 59);">My Discords:</h1>
         <button class="btn" style="width:60%" onclick="window.open('https://discord.gg/MzCEnHDmkj' + location.search)">Light Designs · The center for all design.</button>
@@ -97,8 +171,7 @@
         <br><br>
         <br><br>
         <br><br>
-        <br><br>
-        
+        <br>                     
 
         <!-- <button class="btn" style="width:60%"><i class="fa fa-download"></i> Download</button> -->
         <!-- <br><br> -->
@@ -111,5 +184,6 @@
             All rights reserved.</h6>
         <br>
     </div>
+</div>
 </body>
 </html>
